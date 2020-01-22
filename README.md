@@ -2,8 +2,8 @@
 A metrics reporter implementation for the DogStatsd protocol:
 https://docs.datadoghq.com/developers/dogstatsd/datagram_shell?tab=metrics
 
-StatsD (org.apache.flink.metrics.statsd.StatsDReporter)
-In order to use this reporter you must copy /opt/flink-metrics-statsd-1.9.0.jar into the /lib folder of your Flink distribution.
+## Installation
+In order to use this reporter you must copy /opt/flink-metrics-dogstatsd-X.X.X.jar into the /lib folder of your Flink distribution.
 
 ## Parameters:
 
