@@ -1,0 +1,44 @@
+plugins {
+    id "java"
+    id "idea"
+    id "maven-publish"
+    id "com.github.johnrengelman.shadow" version "4.0.4"
+}
+
+group = 'com.here.mobility'
+version = '1.0.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+def flinkVersion = "1.9.1"
+def scalaVersion = "2.11"
+def logbackVersion = '1.2.3'
+
+shadowJar {
+    baseName = 'pattern-matching'
+    classifier = 'assembly'
+    zip64 = true
+}
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+    compile group: 'org.apache.flink', name: 'flink-metrics-core', version: flinkVersion
+
+    // logging
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: logbackVersion
+    compile group: 'org.slf4j', name: 'log4j-over-slf4j', version: '1.7.25'
+
+    // testing
+    testCompile group: 'org.apache.flink', name: 'flink-metrics-core', version: flinkVersion, classifier: 'tests'
+    testCompile group: 'org.apache.flink', name: 'flink-core', version: flinkVersion, classifier: 'tests'
+    testCompile group: 'org.apache.flink', name: 'flink-runtime_' + scalaVersion, version: flinkVersion
+    testCompile group: 'org.apache.flink', name: 'flink-test-utils-junit', version: flinkVersion
+
+//    testCompile group: 'org.apache.flink', name: 'flink-streaming-java_' + scalaVersion, version: flinkVersion, classifier: 'tests'
+//    testCompile group: 'org.apache.flink', name: 'flink-test-utils_' + scalaVersion, version: flinkVersion, classifier: 'tests'
+}
