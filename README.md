@@ -2,7 +2,13 @@
 A metrics reporter implementation for the DogStatsd protocol:
 https://docs.datadoghq.com/developers/dogstatsd/datagram_shell?tab=metrics
 
-## Installation
+Note any variables in Flink metrics, such as <host>, <job_name>, <tm_id>, <subtask_index>, <task_name>, and <operator_name>, will be sent to Datadog as tags. Tags will look like host:localhost and job_name:myjobname
+## Build
+```
+./gradlew clean build
+```
+
+## Install
 In order to use this reporter you must copy /opt/flink-metrics-dogstatsd-X.X.X.jar into the /lib folder of your Flink distribution.
 
 ## Parameters:
