@@ -19,7 +19,7 @@ In order to use this reporter you must copy /opt/flink-metrics-dogstatsd-X.X.X.j
 
 ## Example configuration:
 ```
-metrics.reporter.dgstsd.class: org.apache.flink.metrics.dogstatsd.DogStatsDReporter
+metrics.reporter.dgstsd.class: com.aroch.flink.metrics.dogstatsd.DogStatsDReporter
 metrics.reporter.dgstsd.host: localhost
 metrics.reporter.dgstsd.port: 8125
 metrics.reporter.dgstsd.tags: env:DEV,service:foo
