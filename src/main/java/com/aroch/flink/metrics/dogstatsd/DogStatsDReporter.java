@@ -160,7 +160,7 @@ public class DogStatsDReporter implements MetricReporter, Scheduled, CharacterFi
             send(numberIsNegative((Number) value), gauge.getMetric(), value.toString(), gauge.getTags());
         }
 
-        send(gauge.getMetric(), value.toString(), gauge.getTags());
+        LOGGER.debug("Metric [{}] will not be reported as the value type is not a number. Only number types are supported by this reporter", gauge.getMetric());
     }
 
     private void reportHistogram(final DHistogram histogram) {

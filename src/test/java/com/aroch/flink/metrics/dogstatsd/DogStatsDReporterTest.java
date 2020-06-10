@@ -217,6 +217,13 @@ public class DogStatsDReporterTest extends TestLogger {
     }
 
     @Test
+    public void testStatsDGaugesReportingStringValue() throws Exception {
+        Set<String> expectedLines = new HashSet<>();
+
+        testMetricAndAssert((Gauge) () -> "STRING_VALUE", "metric", expectedLines);
+    }
+
+    @Test
     public void testStatsDGaugesReportingOfNegativeValues() throws Exception {
         Set<String> expectedLines = new HashSet<>();
         expectedLines.add("metric:0|g");
